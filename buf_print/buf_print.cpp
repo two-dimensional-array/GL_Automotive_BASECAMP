@@ -8,6 +8,12 @@ BufPrint::BufPrint()
     this->counter = 0;
 }
 
+void BufPrint::Write_Char_to_Buffer(char symbol)
+{
+    this->buffer[this->counter] = symbol;
+    this->counter++;
+}
+
 void BufPrint::Print_Buffer()
 {
     printf("%s\n", this->buffer);
@@ -17,9 +23,9 @@ void BufPrint::Print(const char* string)
 {
     while (*string != '\0')
     {
-        if ((*string != '\n') && (counter < PRINT_BUFFER_SIZE))
+        if ((*string != '\n') && (this->counter < PRINT_BUFFER_SIZE))
         {
-            this->buffer[this->counter++] = *string;
+            this->Write_Char_to_Buffer(*string);
         }
         else
         {
