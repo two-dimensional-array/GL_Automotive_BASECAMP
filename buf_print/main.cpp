@@ -2,8 +2,8 @@
 #include <cstdio>
 #include <thread>
 
-#define STRINGS_COUNT 100
-#define STRINGS_TEXT  "Hello Word"
+const int kStringsCount = 100;
+const char* KStringText = "Hello Word";
 
 float Time_Printf();
 float Time_BufPrint();
@@ -28,9 +28,9 @@ int main()
 float Time_Printf()
 {
     auto start = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < STRINGS_COUNT; i++)
+    for (int i = 0; i < kStringsCount; i++)
     {
-        printf(STRINGS_TEXT);
+        printf("%s", KStringText);
     }
     printf("\n");
     auto stop = std::chrono::high_resolution_clock::now();
@@ -42,9 +42,9 @@ float Time_BufPrint()
 {
     BufPrint printer;
     auto start = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < STRINGS_COUNT; i++)
+    for (int i = 0; i < kStringsCount; i++)
     {
-        printer.Print(STRINGS_TEXT);
+        printer.Print(KStringText);
     }
     printer.Print("\n");
     auto stop = std::chrono::high_resolution_clock::now();

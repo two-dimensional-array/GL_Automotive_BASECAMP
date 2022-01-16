@@ -1,15 +1,12 @@
-#define PRINT_BUFFER_SIZE 1024
+const int KBufferSize = 1024;
 
 class BufPrint
 {
 private:
-    char* buffer;
-    int counter;
-    void Write_Char_to_Buffer(char symbol);
-    void Print_Buffer();
+    char* buffer_;
+    int counter_;
 public:
     BufPrint();
     void Print(const char* string);
-    void Flush();
     ~BufPrint();
 };
