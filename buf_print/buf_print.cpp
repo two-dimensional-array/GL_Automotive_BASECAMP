@@ -1,32 +1,23 @@
 #include "buf_print.hpp"
 #include <cstdio>
-#include <cstring>
 
 BufPrint::BufPrint()
 {
-    buffer_ = new char[KBufferSize];
-    memset(buffer_, '\0', (KBufferSize * sizeof(char)));
-    counter_ = 0;
+    buffer_.resize(KBufferSize);
 }
 
-void BufPrint::Print(const char* string)
+void BufPrint::Print(const std::string& string)
 {
-    while (*string != '\0')
+    for (char ch : string)
     {
-        if ((*string != '\n') && (counter_ < (KBufferSize - 1)))
+        if ((ch != '\n') && (buffer_.size() < KBufferSize))
         {
-            buffer_[counter_++] = *string;
+            buffer_.push_back(ch);
         }
         else
         {
-            printf("%s\n", buffer_);
-            memset(buffer_, '\0', (counter_ * sizeof(char)));
+            printf("%s\n", buffer_.c_str());
+            buffer_.clear();
         }
-        string++;
-    }    
-}
-
-BufPrint::~BufPrint()
-{
-    delete[] buffer_;
+    }
 }

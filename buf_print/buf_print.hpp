@@ -1,12 +1,12 @@
+#include <string>
+
 const int KBufferSize = 1024;
 
 class BufPrint
 {
 private:
-    char* buffer_;
-    int counter_;
+    std::string buffer_ = "";
 public:
     BufPrint();
-    void Print(const char* string);
-    ~BufPrint();
+    void Print(const std::string& string);
 };
