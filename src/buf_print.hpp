@@ -2,8 +2,7 @@
 
 const int kBufferSize = 1024;
 
-class bufPrint
-{
+class bufPrint {
   private:
     std::string buffer_;
   public:
